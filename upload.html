@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Varad | UI/UX Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Varad — UI/UX designer crafting clean, conversion-focused interfaces in Figma."
+  />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-elevated: #111121;
+      --accent: #8c7bff;
+      --accent-soft: rgba(140, 123, 255, 0.16);
+      --text-main: #f7f7ff;
+      --text-muted: #a3a3c2;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.75);
+      --max-width: 1120px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #1b1530 0, #050510 50%, #020109 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px 18px 60px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(
+          to bottom,
+          rgba(5, 5, 16, 0.85),
+          rgba(5, 5, 16, 0.75),
+          transparent
+        );
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 0, #ffffff, #8c7bff);
+      box-shadow: 0 0 22px rgba(140, 123, 255, 0.8);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #8c7bff, #ff8ad6);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(10, 10, 30, 0.9);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .nav-cta:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(140, 123, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+
+    .hero {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 11px 5px 6px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(6, 6, 22, 0.95);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      width: fit-content;
+    }
+
+    .chip-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffffff, #8c7bff);
+      box-shadow: 0 0 16px rgba(140, 123, 255, 0.7);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-accent {
+      background: linear-gradient(120deg, #ffffff, #d6cffd, #ff91cf);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 34rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #8c7bff, #ff8ad6);
+      color: #050510;
+      font-weight: 600;
+      box-shadow: 0 12px 34px rgba(140, 123, 255, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) translateX(1px);
+      box-shadow: 0 18px 42px rgba(140, 123, 255, 0.8);
+    }
+
+    .btn-ghost {
+      background: rgba(10, 10, 30, 0.95);
+      border-color: var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-soft);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-stat strong {
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(
+          circle at top left,
+          rgba(140, 123, 255, 0.22),
+          transparent 55%
+        ),
+        rgba(11, 11, 26, 0.98);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.9rem;
+    }
+
+    .hero-tagline {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(5, 5, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .preview-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .preview-thumb {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(145deg, #19192a, #050510);
+      min-height: 100px;
+      position: relative;
+    }
+
+    .preview-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preview-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 30%,
+        rgba(0, 0, 0, 0.55)
+      );
+    }
+
+    .preview-caption {
+      position: absolute;
+      left: 9px;
+      bottom: 8px;
+      z-index: 2;
+      font-size: 0.7rem;
+      color: #f2f2ff;
+    }
+
+    .hero-tools {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-tools span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(5, 5, 20, 0.95);
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 52px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #8c7bff, #ff8ad6);
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 20rem;
+      text-align: right;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: rgba(10, 10, 24, 0.96);
+      border: 1px solid var(--border-subtle);
+      padding: 18px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    .card strong {
+      color: #ffffff;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(5, 5, 20, 0.9);
+      color: var(--text-muted);
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        margin-top: 18px;
+      }
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(150deg, #151527, #0a0a16);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .project-thumb {
+      position: relative;
+      overflow: hidden;
+      max-height: 210px;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.06) translateY(-4px);
+    }
+
+    .project-pill {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(4, 4, 12, 0.9);
+      color: #f4f4ff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 2;
+    }
+
+    .project-body {
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 5px;
+    }
+
+    .project-tags span {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(5, 5, 20, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .project-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.77rem;
+      color: var(--text-muted);
+    }
+
+    .view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    /* Process */
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      font-size: 0.83rem;
+    }
+
+    @media (max-width: 960px) {
+      .process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .process-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .step {
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      background: rgba(11, 11, 28, 0.96);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    .step-num {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+
+    .step p {
+      color: var(--text-muted);
+    }
+
+    /* Contact */
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-left {
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      background: radial-gradient(circle at top left, #8c7bff33, transparent 55%),
+        rgba(9, 9, 25, 0.96);
+      border: 1px solid var(--accent-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-left h3 {
+      margin-bottom: 6px;
+    }
+
+    .contact-left p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-right {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .contact-item span {
+      color: #ffffff;
+      font-size: 0.86rem;
+    }
+
+    /* Modal */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 2, 10, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+    }
+
+    .modal {
+      max-width: 780px;
+      width: calc(100% - 32px);
+      max-height: 80vh;
+      background: #0a0a18;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--accent-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+      overflow: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-size: 1.02rem;
+    }
+
+    .modal-close {
+      border: none;
+      background: rgba(17, 17, 35, 0.96);
+      color: #fff;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .modal-close:hover {
+      background: rgba(40, 40, 70, 0.96);
+    }
+
+    .modal-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .modal-tags span {
+      font-size: 0.74rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(8, 8, 28, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .modal-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.82rem;
+      border: 1px solid var(--accent-soft);
+      background: transparent;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(12, 12, 30, 0.96);
+    }
+
+    footer {
+      margin-top: 44px;
+      font-size: 0.75rem;
+      text-align: center;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 16px;
+    }
+
+    /* Reveal animation */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span>VARAD • UI/UX</span>
+      </div>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Let’s work together
+      </button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left reveal">
+        <div class="chip">
+          <div class="chip-dot"></div>
+          <span>Available for freelance UI/UX work</span>
+        </div>
+        <h1>
+          I design <span class="hero-accent">interfaces that feel obvious</span>
+          the first time you touch them.
+        </h1>
+        <p>
+          I’m Varad, a UI/UX designer working primarily in Figma — crafting
+          clean layouts, intuitive flows, and visuals that make products feel
+          fast, friendly and trustworthy.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#work" class="btn-primary">
+            View selected projects →
+          </a>
+          <a href="#" class="btn-ghost">
+            Download resume (PDF)
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-stat">
+            <strong>20+</strong>
+            <span>Figma screens designed</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Web & App</strong>
+            <span>Dashboards • Mobile • Landing pages</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Tools</strong>
+            <span>Figma, FigJam, Prototyping</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div>
+              <div style="font-size: 0.82rem; color:#dcdcff;">
+                UI/UX snapshots
+              </div>
+              <div class="hero-tagline">
+                A few live frames from recent Figma projects.
+              </div>
+            </div>
+            <span class="pill">Made in Figma</span>
+          </div>
+
+          <div class="preview-strip">
+            <!-- CHANGE THESE IMAGES TO YOUR REAL EXPORTS -->
+            <div class="preview-thumb">
+              <img src="images/fintech-app.jpg" alt="Fintech app UI" />
+              <div class="preview-caption">Fintech mobile</div>
+            </div>
+            <div class="preview-thumb">
+              <img src="images/saas-dashboard.jpg" alt="SaaS dashboard UI" />
+              <div class="preview-caption">SaaS dashboard</div>
+            </div>
+            <div class="preview-thumb">
+              <img src="images/landing-page.jpg" alt="Landing page UI" />
+              <div class="preview-caption">Landing page</div>
+            </div>
+          </div>
+
+          <div class="hero-tools">
+            <span>Auto-layout systems</span>
+            <span>Design tokens</span>
+            <span>Component libraries</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="section-heading">
+        <div class="section-title">
+          <span class="dot"></span>
+          <span>Selected projects</span>
+        </div>
+        <div class="section-subtitle">
+          A mix of mobile, web and dashboard UI. Click any card to view a quick
+          breakdown and open the Figma file.
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <!-- PROJECT 1 -->
+        <article
+          class="project-card reveal"
+          data-title="Fintech savings app"
+          data-tags="Mobile app · Product design · UI/UX"
+          data-description="End-to-end mobile experience for a savings automation app. Clean hierarchy, calm colours, and flows designed to reduce drop-offs during onboarding and goal setup."
+          data-link="https://www.figma.com/your-fintech-link"
+        >
+          <div class="project-thumb">
+            <span class="project-pill">Mobile UI</span>
+            <img src="images/fintech-app.jpg" alt="Fintech mobile app UI" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">Fintech savings app</div>
+            <div class="project-desc">
+              Onboarding, dashboard and goal flows focused on clarity and trust.
+            </div>
+            <div class="project-tags">
+              <span>Onboarding</span>
+              <span>Money flows</span>
+              <span>Dark + light themes</span>
+            </div>
+            <div class="project-footer">
+              <span>Case study preview</span>
+              <span class="view-link">View details</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article
+          class="project-card reveal"
+          data-title="SaaS analytics dashboard"
+          data-tags="Web app · Dashboard · Design system"
+          data-description="A responsive analytics dashboard for a SaaS product. Emphasis on card-based layout, typography hierarchy, and quick-glance KPIs with drill-down views."
+          data-link="https://www.figma.com/your-saas-link"
+        >
+          <div class="project-thumb">
+            <span class="project-pill">Dashboard</span>
+            <img src="images/saas-dashboard.jpg" alt="SaaS dashboard UI" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">SaaS analytics dashboard</div>
+            <div class="project-desc">
+              Modular layout with reusable components and state variants.
+            </div>
+            <div class="project-tags">
+              <span>Data viz</span>
+              <span>Components</span>
+              <span>Responsive</span>
+            </div>
+            <div class="project-footer">
+              <span>Case study preview</span>
+              <span class="view-link">View details</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article
+          class="project-card reveal"
+          data-title="Landing page for learning platform"
+          data-tags="Marketing site · Web UI · Conversion"
+          data-description="Hero, pricing, and course discovery sections for an online learning platform. Designed to feel warm, structured, and reduce friction before sign-up."
+          data-link="https://www.figma.com/your-landing-link"
+        >
+          <div class="project-thumb">
+            <span class="project-pill">Landing page</span>
+            <img src="images/landing-page.jpg" alt="Landing page UI" />
+          </div>
+          <div class="project-body">
+            <div class="project-title">Learning platform landing</div>
+            <div class="project-desc">
+              Scroll experience that slowly reveals value, proof, and action.
+            </div>
+            <div class="project-tags">
+              <span>Hero</span>
+              <span>Pricing</span>
+              <span>Testimonials</span>
+            </div>
+            <div class="project-footer">
+              <span>Case study preview</span>
+              <span class="view-link">View details</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more project cards by copying this pattern -->
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-heading">
+        <div class="section-title">
+          <span class="dot"></span>
+          <span>About & skills</span>
+        </div>
+        <div class="section-subtitle">
+          A mix of structure and intuition. I like clean grids, brave type, and
+          flows that feel like you’ve used them before.
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="card reveal">
+          <p>
+            Hi, I’m <strong>Varad</strong> — a UI/UX designer who builds
+            product-ready interfaces inside Figma. I care a lot about
+            <strong>visual clarity</strong>, <strong>copy that guides</strong>,
+            and small interactions that make a product feel alive.
+          </p>
+          <p style="margin-top: 8px;">
+            I enjoy taking messy ideas and turning them into structured screens,
+            with clear hierarchy, smooth spacing, and components that are easy
+            for devs to implement.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <strong style="font-size: 0.9rem;">Core strengths</strong>
+          <div class="tag-row">
+            <span class="tag">Dashboard & web UI</span>
+            <span class="tag">Mobile product flows</span>
+            <span class="tag">Auto layout & constraints</span>
+            <span class="tag">Clickable prototypes</span>
+            <span class="tag">Component libraries</span>
+            <span class="tag">Design systems basics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-heading">
+        <div class="section-title">
+          <span class="dot"></span>
+          <span>How I work</span>
+        </div>
+        <div class="section-subtitle">
+          Simple, lightweight process that works well for freelance projects and
+          quick experiments.
+        </div>
+      </div>
+
+      <div class="process-steps">
+        <div class="step reveal">
+          <div class="step-num">01 • Understand</div>
+          <div class="step-title">Quick alignment</div>
+          <p>
+            Short call or chat to understand your product, users, goals and
+            constraints. We define the must-have screens and success metrics.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-num">02 • Structure</div>
+          <div class="step-title">Flows & wireframes</div>
+          <p>
+            I map out key user flows and low-fidelity wireframes so we agree on
+            structure before making it beautiful.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-num">03 • Design</div>
+          <div class="step-title">High-fidelity UI</div>
+          <p>
+            We move into polished Figma designs: layout, type, colours,
+            components and states. I share prototypes as we go.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-num">04 • Handoff</div>
+          <div class="step-title">Dev-ready files</div>
+          <p>
+            Final Figma file with styles, components and comments for devs, plus
+            exportable assets if needed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-heading">
+        <div class="section-title">
+          <span class="dot"></span>
+          <span>Let’s build something</span>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-left reveal">
+          <h3>Got a product, idea or screen that needs a brain?</h3>
+          <p>
+            I’m open for freelance UI/UX projects, especially dashboards, web
+            apps, mobile flows and landing pages. Share a short brief and I’ll
+            reply with questions, ideas, or a quick Loom if needed.
+          </p>
+
+          <div class="modal-actions">
+            <a href="mailto:youremail@example.com" class="btn-primary">
+              Email me a brief
+            </a>
+            <a href="https://www.fiverr.com/" class="btn-outline" target="_blank">
+              View my Fiverr profile
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-right reveal">
+          <div>Details for clients</div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>Deliverables:</span> Figma file, clickable prototype, export
+              assets on request.
+            </div>
+            <div class="contact-item">
+              <span>Typical scope:</span> 3–10 screens per project, or focused
+              redesign of key flows.
+            </div>
+            <div class="contact-item">
+              <span>Communication:</span> English • async chat • Looms / calls if needed.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Varad — designed in Figma, shipped to the web.
+    </footer>
+  </main>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title">Project title</div>
+        <button class="modal-close" id="modal-close">Close</button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-description">
+          Project description goes here. Replace this by clicking a card.
+        </p>
+        <div class="modal-tags" id="modal-tags"></div>
+        <div class="modal-actions" id="modal-actions">
+          <!-- Figma button inserted from JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+    revealEls.forEach(el => io.observe(el));
+
+    // Project modal logic
+    const modalBackdrop = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalTags = document.getElementById('modal-tags');
+    const modalActions = document.getElementById('modal-actions');
+    const modalClose = document.getElementById('modal-close');
+
+    function openModalFromCard(card) {
+      const title = card.dataset.title || 'Untitled project';
+      const description =
+        card.dataset.description ||
+        'Case study details coming soon. This will explain the problem, approach, and outcome.';
+      const tags = (card.dataset.tags || '')
+        .split('·')
+        .map(t => t.trim())
+        .filter(Boolean);
+      const figmaLink = card.dataset.link || '';
+
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+
+      modalTags.innerHTML = '';
+      tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.textContent = tag;
+        modalTags.appendChild(span);
+      });
+
+      modalActions.innerHTML = '';
+      if (figmaLink) {
+        const a = document.createElement('a');
+        a.href = figmaLink;
+        a.target = '_blank';
+        a.className = 'btn-outline';
+        a.textContent = 'Open in Figma';
+        modalActions.appendChild(a);
+      }
+
+      modalBackdrop.style.display = 'flex';
+    }
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => openModalFromCard(card));
+    });
+
+    modalClose.addEventListener('click', () => {
+      modalBackdrop.style.display = 'none';
+    });
+
+    modalBackdrop.addEventListener('click', e => {
+      if (e.target === modalBackdrop) {
+        modalBackdrop.style.display = 'none';
+      }
+    });
+
+    // Year in footer
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
